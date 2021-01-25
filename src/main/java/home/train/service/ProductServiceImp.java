@@ -2,9 +2,12 @@ package home.train.service;
 
 import home.train.document.Product;
 import home.train.repository.ProductRepository;
+import org.springframework.stereotype.Service;
 
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
+@Service
 public class ProductServiceImp implements ProductService{
 
     private final ProductRepository productRepository;
@@ -14,22 +17,23 @@ public class ProductServiceImp implements ProductService{
     }
 
     @Override
-    public Set<Product> getAllProduct() {
-        return null;
+    public List<Product> getAllProduct() {
+        List<Product> products= new ArrayList<>(productRepository.findAll());
+        return products;
     }
 
     @Override
     public Product save(Product product) {
-        return null;
+        return productRepository.save(product);
     }
 
     @Override
     public Product getById(String id) {
-        return null;
+        return productRepository.findById(id).orElse(null);
     }
 
     @Override
     public void deleteById(String id) {
-
+      productRepository.deleteById(id);
     }
 }

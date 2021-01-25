@@ -1,7 +1,7 @@
 package home.train.repository;
 
 import home.train.document.Product;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface ProductRepository extends CrudRepository<Product,String> {
+public interface ProductRepository extends MongoRepository<Product,String> {
 }
